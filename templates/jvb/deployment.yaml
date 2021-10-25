@@ -37,8 +37,13 @@ spec:
           image: "{{ .Values.jvb.image.repository }}:{{ default .Chart.AppVersion .Values.jvb.image.tag }}"
           imagePullPolicy: {{ pluck "pullPolicy" .Values.jvb.image .Values.image | first }}
           envFrom:
+          {{ - if not .Values.jvb.xmpp.existingSecret - }}
           - secretRef:
               name: {{ include "call-nested" (list . "prosody" "prosody.fullname") }}-jvb
+          {{- else -}}
+          - secretRef:
+              name: {{ .Values.jvb.xmpp.existingSecret }}
+          {{ - end - }}
           - configMapRef:
               name: {{ include "call-nested" (list . "prosody" "prosody.fullname") }}-common
           - configMapRef:
