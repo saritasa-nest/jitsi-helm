@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  prosody:
+  - apiVersion: v2
+    appVersion: 0.11.13
+    created: "2022-03-24T09:09:43.187546114Z"
+    description: A Helm chart for Kubernetes
+    digest: bf06908d98ce258890c7bbda2c7608f9c056baa6f76dc900535e6a47ab0cd5b9
+    name: prosody
+    type: application
+    urls:
+    - https://github.com/saritasa-nest/jitsi-helm/releases/download/prosody-1.2.2/prosody-1.2.2.tgz
+    version: 1.2.2
+generated: "2022-03-24T09:09:42.959150316Z"
